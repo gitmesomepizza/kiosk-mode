@@ -1,7 +1,5 @@
 # kiosk-mode
 
-[![hacs_badge](https://img.shields.io/badge/HACS-Default-yellow.svg)](https://github.com/custom-components/hacs)
-
 Hides the header and/or sidebar drawer in [Home Assistant](https://www.home-assistant.io/)
 
 ![image](example1.png)
@@ -10,29 +8,8 @@ Hides the header and/or sidebar drawer in [Home Assistant](https://www.home-assi
 
 *If you previously used [custom-header](https://github.com/maykar/custom-header) you need to uninstall it from [HACS](https://hacs.xyz/)*<br>
 
-**Follow only one of two installation methods below, HACS or Manually:**
-
 <details>
-  <summary><b>Installation and tracking with HACS</b></summary>
-<br>
-
-* In the "Frontend" section of [HACS](https://github.com/hacs/integration) hit the plus icon in the bottom right
-* Search for `Kiosk Mode` and install it
-* If using YAML mode or if HACS doesn't automatically add it you'll need to add the resource below
-
-YAML mode users will add it to their [configuration.yaml](https://www.home-assistant.io/lovelace/dashboards-and-views/#adding-more-dashboards-with-yaml) file.
-Non-YAML mode, or Storage Mode, users can find resources in their sidebar under `"Configuration" > "Lovelace Dashboards" > "Resources"`
-
-```yaml
-resources:
-  - url: /hacsfiles/kiosk-mode/kiosk-mode.js
-    type: module
-```
-<br>
-</details>
-
-<details>
-  <summary><b>Manual installation</b></summary>
+  <summary><b>Installation</b></summary>
 <br>
   
 * Download [kiosk-mode.js](https://github.com/matt8707/kiosk-mode/releases/latest) from the latest release and place it in your `www` folder
