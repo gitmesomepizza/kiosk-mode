@@ -4,7 +4,7 @@ class KioskMode {
     if (this.queryString("clear_km_cache")) this.setCache(["kmHeader", "kmSidebar", "kmOverflow", "kmMenuButton"], "false");
     this.ha = document.querySelector("home-assistant");
     this.main = this.ha.shadowRoot.querySelector("home-assistant-main").shadowRoot;
-    this.user = this.ha.__hass.user;
+    this.user = this.ha.hass.user;
     this.llAttempts = 0;
     this.run();
     this.entityWatch();
@@ -21,7 +21,7 @@ class KioskMode {
   getConfig(lovelace) {
     this.llAttempts++;
     try {
-      const llConfig = lovelace.__lovelace.config;
+      const llConfig = lovelace.lovelace.config;
       const config = llConfig.kiosk_mode || {};
       this.processConfig(lovelace, config);
     } catch (e) {
@@ -36,7 +36,7 @@ class KioskMode {
   }
 
   processConfig(lovelace, config) {
-    const dash = this.ha.__hass.panelUrl;
+    const dash = this.ha.hass.panelUrl;
     if (!window.kioskModeEntities[dash]) window.kioskModeEntities[dash] = [];
     this.hideHeader = this.hideSidebar = this.hideOverflow = this.ignoreEntity = this.ignoreMobile = false;
 
@@ -76,7 +76,7 @@ class KioskMode {
       for (let conf of entityConfig) {
         const entity = Object.keys(conf.entity)[0];
         if (!window.kioskModeEntities[dash].includes(entity)) window.kioskModeEntities[dash].push(entity);
-        if (this.ha.__hass.states[entity].state == conf.entity[entity]) {
+        if (this.ha.hass.states[entity].state == conf.entity[entity]) {
           if ("hide_header" in conf) this.hideHeader = conf.hide_header;
           if ("hide_sidebar" in conf) this.hideSidebar = conf.hide_sidebar;
           if ("hide_overflow" in conf) this.hideOverflow = conf.hide_overflow;
@@ -143,7 +143,7 @@ class KioskMode {
   }
 
   entityWatchCallback(event) {
-    const entities = window.kioskModeEntities[this.ha.__hass.panelUrl] || [];
+    const entities = window.kioskModeEntities[this.ha.hass.panelUrl] || [];
     if (
       entities.length &&
       event.event_type == "state_changed" &&
