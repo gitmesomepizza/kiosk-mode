@@ -1,6 +1,9 @@
 # kiosk-mode - For Home Assistant >= 2025.05.1
 
 Hides the header and/or sidebar drawer in [Home Assistant](https://www.home-assistant.io/)
+---
+Updating the currently archived project: [maykar/kiosk-mode](https://github.com/maykar/kiosk-mode) to restore functionality on the latest versions of Home Assistant!
+---
 
 ![image](example1.png)
 
